@@ -17,7 +17,7 @@ class ShortcutsHandler(IPythonHandler):
                 'target': ls.target.format(base_url=self.base_url),
             }
             if ls.icon_path:
-                icon_url = ujoin(self.base_url, 'launcher-shortcuts', 'icon', sp.name)
+                icon_url = ujoin(self.base_url, 'launcher-shortcuts', 'icon', ls.name)
             data.append(item)
 
         self.write({'shortcuts': data})
