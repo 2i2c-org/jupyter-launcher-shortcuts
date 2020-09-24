@@ -1,11 +1,11 @@
-import { JupyterLab, JupyterLabPlugin } from '@jupyterlab/application'; 
+import { JupyterFrontEnd, JupyterFrontEndPlugin } from '@jupyterlab/application'; 
 import { ILauncher } from '@jupyterlab/launcher';
 import { PageConfig } from '@jupyterlab/coreutils';
 
 import '../style/index.css';
 
 
-function addLauncherShortcuts(shortcutsData: any, launcher: ILauncher, app: JupyterLab) {
+function addLauncherShortcuts(shortcutsData: any, launcher: ILauncher, app: JupyterFrontEnd) {
     for (let shortcut of shortcutsData.shortcuts) {
 
       let commandId = 'shortcut:' + shortcut.name;
@@ -29,11 +29,11 @@ function addLauncherShortcuts(shortcutsData: any, launcher: ILauncher, app: Jupy
 /**
  * Initialization data for the jupyterlab-server-proxy extension.
  */
-const extension: JupyterLabPlugin<void> = {
+const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-launcher-shortcuts',
   autoStart: true,
   requires: [ILauncher],
-  activate: (app: JupyterLab, launcher: ILauncher) => {
+  activate: (app: JupyterFrontEnd, launcher: ILauncher) => {
     // FIXME: What the callback hell is this
     fetch(PageConfig.getBaseUrl() + 'launcher-shortcuts/shortcuts').then(
       response => {

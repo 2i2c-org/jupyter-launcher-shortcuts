@@ -3,7 +3,7 @@ from glob import glob
 
 setuptools.setup(
     name="jupyter-launcher-shortcuts",
-    version='1.0dev',
+    version='2.0.0',
     url="https://github.com/yuvipanda/jupyter-launcher-shortcuts",
     author="Yuvi Panda",
     author_email="yuvipanda@gmail.com",
