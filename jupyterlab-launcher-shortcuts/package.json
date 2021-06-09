@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-launcher-shortcuts",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Provide arbitrary shortcuts for apps in JupyterLab",
   "keywords": [
     "jupyter",
@@ -31,10 +31,10 @@
   },
   "dependencies": {
     "@jupyterlab/application": "^3.0.0",
-    "@jupyterlab/launcher": "^3.0.0"
+    "@jupyterlab/launcher": "^3.0.0",
   },
   "devDependencies": {
-    "rimraf": "^2.6.1",
+    "rimraf": "^3.0.2",
     "typescript": "3.9.3"
   },
   "jupyterlab": {
