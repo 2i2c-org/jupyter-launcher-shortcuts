@@ -8,6 +8,7 @@ setuptools.setup(
     author="Yuvi Panda",
     author_email="yuvipanda@gmail.com",
     license="BSD 3-Clause",
+    license_files = ("LICENSE",),
     description="Easily place shortcuts",
     packages=setuptools.find_packages(),
     install_requires=['notebook', 'simpervisor', 'aiohttp'],
