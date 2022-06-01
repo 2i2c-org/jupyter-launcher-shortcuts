@@ -17,7 +17,7 @@ class ShortcutsHandler(IPythonHandler):
                 'target': ls.target.format(base_url=self.base_url),
             }
             if ls.icon_path:
-                icon_url = ujoin(self.base_url, 'launcher-shortcuts', 'icon', ls.name)
+                item["icon_url"] = ujoin(self.base_url, 'launcher-shortcuts', 'icon', ls.name)
             data.append(item)
 
         self.write({'shortcuts': data})
@@ -55,6 +55,6 @@ class IconHandler(IPythonHandler):
         else:
             content_type = "application/octet-stream"
 
-        with open(self.icons[name]) as f:
+        with open(self.icons[name], "rb") as f:
             self.write(f.read())
         self.set_header('Content-Type', content_type)
