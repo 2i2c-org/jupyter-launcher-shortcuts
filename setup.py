@@ -18,7 +18,7 @@ setuptools.setup(
     ],
     data_files=[
         ('share/jupyter/nbextensions/jupyter_launcher_shortcuts', glob('jupyter_launcher_shortcuts/static/*')),
-        ('etc/jupyter/jupyter_notebook_config.d', ['jupyter_launcher_shortcuts/etc/serverextension.json']),
+        ('etc/jupyter/jupyter_server_config.d', ['jupyter_launcher_shortcuts/etc/serverextension.json']),
         ('etc/jupyter/nbconfig/tree.d', ['jupyter_launcher_shortcuts/etc/nbextension.json'])
     ],
     include_package_data=True,

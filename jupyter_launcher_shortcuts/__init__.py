@@ -2,6 +2,7 @@ try:
     from jupyter_server.utils import url_path_join as ujoin
 except ImportError:
     from notebook.utils import url_path_join as ujoin
+import jupyter_server
 from .api import ShortcutsHandler, IconHandler
 from traitlets import Dict
 from traitlets.config import Configurable
@@ -41,12 +42,12 @@ def shortcut_from_dict(name, shortcut_dict):
         target=shortcut_dict['target']
     )
 
-def load_jupyter_server_extension(nbapp):
+def _load_jupyter_server_extension(serverapp: jupyter_server.serverapp.ServerApp):
     # Set up handlers picked up via config
-    base_url = nbapp.web_app.settings['base_url']
+    base_url = serverapp.web_app.settings['base_url']
     shortcuts = [
         shortcut_from_dict(k, v) 
-        for k, v in LauncherShortcuts(parent=nbapp).shortcuts.items()
+        for k, v in LauncherShortcuts(parent=serverapp).shortcuts.items()
     ]
 
     icons = {}
@@ -54,7 +55,7 @@ def load_jupyter_server_extension(nbapp):
         if ls.icon_path:
             icons[ls.name] = ls.icon_path
 
-    nbapp.web_app.add_handlers('.*', [
+    serverapp.web_app.add_handlers('.*', [
         (ujoin(base_url, 'launcher-shortcuts/shortcuts'), ShortcutsHandler, {'shortcuts': shortcuts}),
         (ujoin(base_url, 'launcher-shortcuts/icon/(.*)'), IconHandler, {'icons': icons})
     ])
