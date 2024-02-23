@@ -1,7 +1,4 @@
-try:
-    from jupyter_server.utils import url_path_join as ujoin
-except ImportError:
-    from notebook.utils import url_path_join as ujoin
+from jupyter_server.utils import url_path_join as ujoin
 import jupyter_server
 from .api import ShortcutsHandler, IconHandler
 from traitlets import Dict
