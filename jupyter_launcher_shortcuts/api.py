@@ -1,13 +1,7 @@
 from tornado import web
 import mimetypes
-try:
-    from jupyter_server.base.handlers import JupyterHandler as handler
-except:
-    from notebook.base.handlers import IPythonHandler as handler
-try:
-    from jupyter_server.utils import url_path_join as ujoin
-except ImportError:
-    from notebook.utils import url_path_join as ujoin
+from jupyter_server.base.handlers import JupyterHandler as handler
+from jupyter_server.utils import url_path_join as ujoin
 
 class ShortcutsHandler(handler):
     def initialize(self, shortcuts):
