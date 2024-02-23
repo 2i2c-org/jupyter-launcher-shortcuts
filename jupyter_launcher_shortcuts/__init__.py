@@ -67,10 +67,15 @@ def _jupyter_server_extension_paths():
         'module': 'jupyter_launcher_shortcuts',
     }]
 
-def _jupyter_nbextension_paths():
+#def _jupyter_nbextension_paths():
+#    return [{
+#        "section": "tree",
+#        "dest": "jupyter_launcher_shortcuts",
+#        'src': 'static',
+#        "require": "jupyter_launcher_shortcuts/tree"
+#    }]
+def _jupyter_labextension_paths():
     return [{
-        "section": "tree",
-        "dest": "jupyter_launcher_shortcuts",
-        'src': 'static',
-        "require": "jupyter_launcher_shortcuts/tree"
+        "src": "labextension",
+        "dest": "jupyter_launcher_shortcuts"
     }]
