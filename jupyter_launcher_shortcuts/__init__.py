@@ -39,14 +39,13 @@ def shortcut_from_dict(name, shortcut_dict):
         target=shortcut_dict['target']
     )
 
-def _load_jupyter_server_extension(serverapp: jupyter_server.serverapp.ServerApp):
+def _load_jupyter_server_extension(serverapp):
     # Set up handlers picked up via config
     base_url = serverapp.web_app.settings['base_url']
     shortcuts = [
         shortcut_from_dict(k, v) 
         for k, v in LauncherShortcuts(parent=serverapp).shortcuts.items()
     ]
-
     icons = {}
     for ls in shortcuts:
         if ls.icon_path:
@@ -64,13 +63,14 @@ def _jupyter_server_extension_paths():
         'module': 'jupyter_launcher_shortcuts',
     }]
 
-#def _jupyter_nbextension_paths():
-#    return [{
-#        "section": "tree",
-#        "dest": "jupyter_launcher_shortcuts",
-#        'src': 'static',
-#        "require": "jupyter_launcher_shortcuts/tree"
-#    }]
+def _jupyter_nbextension_paths():
+    return [{
+        "section": "tree",
+        "dest": "jupyter_launcher_shortcuts",
+        'src': 'static',
+        "require": "jupyter_launcher_shortcuts/tree"
+    }]
+
 def _jupyter_labextension_paths():
     return [{
         "src": "labextension",

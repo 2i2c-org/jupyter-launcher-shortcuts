@@ -17,23 +17,17 @@ For classic Jupyter Notebook, they are added under the 'New' button
 Installation
 ============
 
-The supporting notebook server extension & classic notebook extension
+The JupyterLab extension, notebook server extension & classic notebook extension
 can be installed with ``pip``.
 
 .. code:: bash
 
    pip install jupyter-launcher-shortcuts
 
-The JupyterLab extension needs to be installed separately.
-
-.. code:: bash
-
-   jupyter labextension install jupyterlab-launcher-shortcuts
-
 Configuring
 ===========
 
-The extension can be configured in a ``jupyter_notebook_config.py``
+The extension can be configured in a ``jupyter_server_config.py``
 file created in any of the directories under ``config`` in the 
 output of ``jupyter --paths`` command.
 

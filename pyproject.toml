@@ -37,8 +37,9 @@ artifacts = ["jupyter_launcher_shortcuts/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyterlab_apod/labextension" = "share/jupyter/labextensions/jupyter_launcher_shortcuts"
+"jupyter_launcher_shortcuts/labextension" = "share/jupyter/labextensions/jupyter_launcher_shortcuts"
 "install.json" = "share/jupyter/labextensions/jupyter_launcher_shortcuts/install.json"
+"jupyter_launcher_shortcuts/etc/serverextension.json" = "etc/jupyter/jupyter_server_config.d/jupyter_launcher_shortcuts.json"
 
 [tool.hatch.build.hooks.version]
 path = "jupyter_launcher_shortcuts/_version.py"
@@ -67,7 +68,7 @@ version_cmd = "hatch version"
 
 [tool.jupyter-releaser.hooks]
 before-build-npm = [
-    "python -m pip install 'jupyterlab>=4.0.0,<5'",
+    "python -m pip install 'jupyterlab>=4.1.0,<5'",
     "jlpm",
     "jlpm build:prod"
 ]
