@@ -58,7 +58,7 @@ def _load_jupyter_server_extension(serverapp):
 
 
 # Jupyter Extension points
-def _jupyter_server_extension_paths():
+def _jupyter_server_extension_points():
     return [{
         'module': 'jupyter_launcher_shortcuts',
     }]
