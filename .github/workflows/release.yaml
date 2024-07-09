@@ -116,9 +116,11 @@ jobs:
       - build
 
     steps:
+      # actions/setup-node creates an .npmrc file that references NODE_AUTH_TOKEN
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+          registry-url: https://registry.npmjs.org
 
       - name: Download artifacts from build
         uses: actions/download-artifact@v4
