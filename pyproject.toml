@@ -129,6 +129,8 @@ src = "jupyter_launcher_shortcuts/_version.py"
 
 [[tool.tbump.file]]
 src = "pyproject.toml"
+search = 'version = "{current_version}"'
 
 [[tool.tbump.file]]
 src = "package.json"
+search = '"version": "{current_version}"'
