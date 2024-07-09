@@ -24,6 +24,7 @@ classifiers = [
 ]
 dependencies = [
     "jupyter_server",
+    "jupyterlab>=4,<5",
     "tornado",
     "traitlets",
 ]
