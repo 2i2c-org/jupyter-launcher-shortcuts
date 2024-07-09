@@ -14,6 +14,7 @@
     "license": "BSD-3-Clause",
     "author": "Yuvi Panda",
     "files": [
+        "LICENSE",
         "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
         "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
         "src/**/*.{ts,tsx}"
@@ -35,7 +36,7 @@
         "clean": "jlpm clean:lib",
         "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
         "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-        "clean:labextension": "rimraf jupyter_launcher_shortcuts/labextension jupyter_launcher_shortcuts/_version.py",
+        "clean:labextension": "rimraf jupyter_launcher_shortcuts/labextension",
         "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
         "eslint": "jlpm eslint:check --fix",
         "eslint:check": "eslint . --cache --ext .ts,.tsx",
@@ -87,7 +88,7 @@
     },
     "jupyterlab": {
         "extension": true,
-        "outputDir": "jupyter_launcher_shortcuts/labextension"
+        "outputDir": "../jupyter_launcher_shortcuts/labextension"
     },
     "eslintIgnore": [
         "node_modules",
