@@ -1,7 +1,7 @@
 # Jupyter Launcher Shortcuts
 
 Extension for JupyterLab (version 4+) and classic Jupyter Notebook (version 7+,
-currently broken, see `Issue #25<https://github.com/2i2c-org/jupyter-launcher-shortcuts/issues/25>`_)
+currently broken, see [Issue #25](https://github.com/2i2c-org/jupyter-launcher-shortcuts/issues/25)
 to add **user defined** 'launcher' shortcuts. Primarily useful in JupyterHub /
 Binder situations.
 
