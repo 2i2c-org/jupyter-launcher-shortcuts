@@ -7269,9 +7269,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyter_launcher_shortcuts@workspace:.":
+"jupyterlab-launcher-shortcuts@workspace:.":
   version: 0.0.0-use.local
-  resolution: "jupyter_launcher_shortcuts@workspace:."
+  resolution: "jupyterlab-launcher-shortcuts@workspace:."
   dependencies:
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/builder": ^4.0.0
