@@ -37,7 +37,7 @@ exclude = [".github"]
 
 [tool.hatch.build.targets.wheel.shared-data]
 "jupyter_launcher_shortcuts/labextension" = "share/jupyter/labextensions/jupyter_launcher_shortcuts"
-"install.json" = "share/jupyter/labextensions/jupyter_launcher_shortcuts/install.json"
+"labextension/install.json" = "share/jupyter/labextensions/jupyter_launcher_shortcuts/install.json"
 "jupyter_launcher_shortcuts/etc/serverextension.json" = "etc/jupyter/jupyter_server_config.d/jupyter_launcher_shortcuts.json"
 
 
@@ -48,6 +48,7 @@ exclude = [".github"]
 #
 [tool.hatch.metadata.hooks.nodejs]
 fields = ["description", "authors", "urls"]
+path = "labextension/package.json"
 
 
 # jupyter-builder is used to ensure we build the jupyterlab extension when the
@@ -62,16 +63,18 @@ ensured-targets = [
     "jupyter_launcher_shortcuts/labextension/static/style.js",
     "jupyter_launcher_shortcuts/labextension/package.json",
 ]
-skip-if-exists = ["jupyter_launcher_shortcuts/labextension/static/style.js"]
+skip-if-exists = ["jupyter_launcher_shortcuts/labextension/package.json"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
+path = "labextension"
 build_cmd = "build:prod"
 npm = ["jlpm"]
 
 [tool.hatch.build.hooks.jupyter-builder.editable-build-kwargs]
+path = "labextension"
 build_cmd = "install:extension"
 npm = ["jlpm"]
-source_dir = "src"
+source_dir = "labextension/src"
 build_dir = "jupyter_launcher_shortcuts/labextension"
 
 

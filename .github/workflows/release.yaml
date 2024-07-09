@@ -39,7 +39,7 @@ jobs:
           cache: yarn
           node-version: "lts/*"
           registry-url: https://registry.npmjs.org
-          cache-dependency-path: yarn.lock
+          cache-dependency-path: labextension/yarn.lock
 
       - name: Update root build packages
         run: |
@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir jsdist
           cd jsdist
-          npm pack ../jupyter_launcher_shortcuts/labextension
+          npm pack ../labextension
           sha256sum * | tee SHA256SUMS
 
       - name: Upload Python artifact

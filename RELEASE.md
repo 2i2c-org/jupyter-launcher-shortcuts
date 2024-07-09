@@ -9,7 +9,7 @@ instructions on how to make a release.
 
 ## Steps to make a release
 
-1. Create a PR updating `yarn.lock` and continue only when its merged.
+1. Create a PR updating `labextension/yarn.lock` and continue only when its merged.
 
    This helps us avoid leaving known vulnerabilities are unfixed. To do this,
    delete the file and manually perform the the `build dist` step in the
@@ -18,7 +18,7 @@ instructions on how to make a release.
    ```shell
    # git clean -xfd can be needed to ensure yarn.lock
    # gets re-created during pyproject-build
-   rm yarn.lock
+   rm labextension/yarn.lock
 
    pip install --upgrade pip build
    pyproject-build

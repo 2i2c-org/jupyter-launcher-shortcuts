@@ -87,7 +87,7 @@
     },
     "jupyterlab": {
         "extension": true,
-        "outputDir": "jupyter_launcher_shortcuts/labextension"
+        "outputDir": "../jupyter_launcher_shortcuts/labextension"
     },
     "eslintIgnore": [
         "node_modules",
