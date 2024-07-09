@@ -1,6 +1,6 @@
 {
     "name": "jupyter_launcher_shortcuts",
-    "version": "4.0.0-0.dev",
+    "version": "4.0.0",
     "description": "Provide arbitrary shortcuts for apps in JupyterLab",
     "keywords": [
         "jupyter",
