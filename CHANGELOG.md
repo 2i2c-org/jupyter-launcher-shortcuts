@@ -2,6 +2,12 @@
 
 ## v4.0
 
+### v4.0.1 - 2024-07-09
+
+#### Continuous integration improvements
+
+- ci: fix setting up credentials to publish a release to npm [#30](https://github.com/2i2c-org/jupyter-launcher-shortcuts/pull/30) ([@consideRatio](https://github.com/consideRatio))
+
 ### v4.0.0 - 2024-07-09
 
 #### API and Breaking Changes
