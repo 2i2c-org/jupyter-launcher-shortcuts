@@ -50,7 +50,7 @@ exclude = [".github"]
 # ref: https://github.com/agoose77/hatch-nodejs-version#readme
 #
 [tool.hatch.metadata.hooks.nodejs]
-fields = ["description", "authors", "urls"]
+fields = ["description", "authors", "urls", "keywords"]
 path = "labextension/package.json"
 
 
