@@ -65,6 +65,7 @@ build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
     "jupyter_launcher_shortcuts/labextension/static/style.js",
     "jupyter_launcher_shortcuts/labextension/package.json",
+    "jupyter_launcher_shortcuts/labextension/static/third-party-licenses.json",
 ]
 skip-if-exists = ["jupyter_launcher_shortcuts/labextension/package.json"]
 
