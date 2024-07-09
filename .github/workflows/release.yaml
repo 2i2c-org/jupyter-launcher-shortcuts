@@ -36,8 +36,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
+          cache: yarn
           node-version: "lts/*"
           registry-url: https://registry.npmjs.org
+          cache-dependency-path: yarn.lock
 
       - name: Update root build packages
         run: |
