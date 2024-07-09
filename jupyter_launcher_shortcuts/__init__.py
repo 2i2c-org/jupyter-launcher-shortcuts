@@ -1,4 +1,5 @@
-from notebook.utils import url_path_join as ujoin
+from jupyter_server.utils import url_path_join as ujoin
+import jupyter_server
 from .api import ShortcutsHandler, IconHandler
 from traitlets import Dict
 from traitlets.config import Configurable
@@ -38,27 +39,26 @@ def shortcut_from_dict(name, shortcut_dict):
         target=shortcut_dict['target']
     )
 
-def load_jupyter_server_extension(nbapp):
+def _load_jupyter_server_extension(serverapp):
     # Set up handlers picked up via config
-    base_url = nbapp.web_app.settings['base_url']
+    base_url = serverapp.web_app.settings['base_url']
     shortcuts = [
         shortcut_from_dict(k, v) 
-        for k, v in LauncherShortcuts(parent=nbapp).shortcuts.items()
+        for k, v in LauncherShortcuts(parent=serverapp).shortcuts.items()
     ]
-
     icons = {}
     for ls in shortcuts:
         if ls.icon_path:
             icons[ls.name] = ls.icon_path
 
-    nbapp.web_app.add_handlers('.*', [
+    serverapp.web_app.add_handlers('.*', [
         (ujoin(base_url, 'launcher-shortcuts/shortcuts'), ShortcutsHandler, {'shortcuts': shortcuts}),
         (ujoin(base_url, 'launcher-shortcuts/icon/(.*)'), IconHandler, {'icons': icons})
     ])
 
 
 # Jupyter Extension points
-def _jupyter_server_extension_paths():
+def _jupyter_server_extension_points():
     return [{
         'module': 'jupyter_launcher_shortcuts',
     }]
@@ -69,4 +69,10 @@ def _jupyter_nbextension_paths():
         "dest": "jupyter_launcher_shortcuts",
         'src': 'static',
         "require": "jupyter_launcher_shortcuts/tree"
+    }]
+
+def _jupyter_labextension_paths():
+    return [{
+        "src": "labextension",
+        "dest": "jupyter_launcher_shortcuts"
     }]

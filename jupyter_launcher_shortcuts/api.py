@@ -1,9 +1,9 @@
 from tornado import web
 import mimetypes
-from notebook.base.handlers import IPythonHandler
-from notebook.utils import url_path_join as ujoin
+from jupyter_server.base.handlers import JupyterHandler as handler
+from jupyter_server.utils import url_path_join as ujoin
 
-class ShortcutsHandler(IPythonHandler):
+class ShortcutsHandler(handler):
     def initialize(self, shortcuts):
         self.shortcuts = shortcuts
 
@@ -24,7 +24,7 @@ class ShortcutsHandler(IPythonHandler):
 
 
 # FIXME: Should be a StaticFileHandler subclass
-class IconHandler(IPythonHandler):
+class IconHandler(handler):
     """
     Serve launcher icons
     """
