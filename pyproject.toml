@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jupyter-launcher-shortcuts"
-version = "4.0.3"
+version = "4.0.4-0.dev"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
@@ -115,7 +115,7 @@ ignore = ["W002"]
 github_url = "https://github.com/2i2c-org/jupyter-launcher-shortcuts"
 
 [tool.tbump.version]
-current = "4.0.3"
+current = "4.0.4-0.dev"
 regex = '''
     (?P<major>\d+)
     \.
