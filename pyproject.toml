@@ -139,5 +139,5 @@ src = "pyproject.toml"
 search = 'version = "{current_version}"'
 
 [[tool.tbump.file]]
-src = "package.json"
+src = "labextension/package.json"
 search = '"version": "{current_version}"'
