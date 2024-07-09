@@ -2,6 +2,12 @@
 
 ## v4.0
 
+### v4.0.4 - 2024-07-09
+
+#### Bugs fixed
+
+- Fix labextension name (jupyterlab-launcher-shortcuts, not jupyter-) [#32](https://github.com/2i2c-org/jupyter-launcher-shortcuts/pull/32) ([@consideRatio](https://github.com/consideRatio))
+
 ### v4.0.1 - 2024-07-09
 
 #### Continuous integration improvements
