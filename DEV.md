@@ -1,9 +1,6 @@
-================================================
-Jupyter Launcher Shortcuts development & release
-================================================
+# Jupyter Launcher Shortcuts development & release
 
-Pre-build labextension
-======================
+## Pre-build labextension
 
 In order to rebuild Jupyterlab extension
 
@@ -17,16 +14,13 @@ Prebuild Jupyterlab extension
 jlpm build
 ```
 
-Create dist packages
-====================
+## Create dist packages
 
 ```
 hatch build
 ```
 
-
-Increase minor version
-======================
+## Increase minor version
 
 ```
 hatch minor version
