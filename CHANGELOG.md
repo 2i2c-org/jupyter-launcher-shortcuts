@@ -2,7 +2,13 @@
 
 ## v4.0
 
-### v4.0.4 - 2024-07-09
+### v4.0.3 - 2024-07-09
+
+#### Bugs fixed
+
+- Fix to make npm package not be empty [#34](https://github.com/2i2c-org/jupyter-launcher-shortcuts/pull/34) ([@consideRatio](https://github.com/consideRatio))
+
+### v4.0.2 - 2024-07-09
 
 #### Bugs fixed
 
