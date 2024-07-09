@@ -4,6 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "jupyter-launcher-shortcuts"
+version = "4.0.0-0.dev"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
@@ -28,28 +29,34 @@ dependencies = [
     "tornado",
     "traitlets",
 ]
-dynamic = ["version", "description", "authors", "urls", "keywords"]
-
-[tool.hatch.version]
-source = "nodejs"
-
-[tool.hatch.metadata.hooks.nodejs]
-fields = ["description", "authors", "urls"]
+dynamic = ["description", "authors", "urls", "keywords"]
 
 [tool.hatch.build.targets.sdist]
 artifacts = ["jupyter_launcher_shortcuts/labextension"]
-exclude = [".github", "binder"]
+exclude = [".github"]
 
 [tool.hatch.build.targets.wheel.shared-data]
 "jupyter_launcher_shortcuts/labextension" = "share/jupyter/labextensions/jupyter_launcher_shortcuts"
 "install.json" = "share/jupyter/labextensions/jupyter_launcher_shortcuts/install.json"
 "jupyter_launcher_shortcuts/etc/serverextension.json" = "etc/jupyter/jupyter_server_config.d/jupyter_launcher_shortcuts.json"
 
-[tool.hatch.build.hooks.version]
-path = "jupyter_launcher_shortcuts/_version.py"
 
+# hatch-nodejs-version is used to populate information in pyproject.toml
+# dynamically based on information in package.json
+#
+# ref: https://github.com/agoose77/hatch-nodejs-version#readme
+#
+[tool.hatch.metadata.hooks.nodejs]
+fields = ["description", "authors", "urls"]
+
+
+# jupyter-builder is used to ensure we build the jupyterlab extension when the
+# Python package is built
+#
+# ref: https://github.com/jupyterlab/hatch-jupyter-builder#readme
+#
 [tool.hatch.build.hooks.jupyter-builder]
-dependencies = ["hatch-jupyter-builder>=0.5"]
+dependencies = ["hatch-jupyter-builder>=0.9.1"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
     "jupyter_launcher_shortcuts/labextension/static/style.js",
@@ -67,6 +74,11 @@ npm = ["jlpm"]
 source_dir = "src"
 build_dir = "jupyter_launcher_shortcuts/labextension"
 
+
+# jupyter-releaser isn't confirmed to be used in this project, is it?
+#
+# ref: https://github.com/jupyter-server/jupyter_releaser#readme
+#
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"
 
@@ -78,5 +90,45 @@ before-build-npm = [
 ]
 before-build-python = ["jlpm clean:all"]
 
+
+# check-wheel-contents isn't confirmed to be used in this project, is it?
+#
+# ref: https://github.com/jwodder/check-wheel-contents#readme
+#
 [tool.check-wheel-contents]
 ignore = ["W002"]
+
+
+# tbump is used to simplify and standardize the release process when updating
+# the version, making a git commit and tag, and pushing changes.
+#
+# ref: https://github.com/your-tools/tbump#readme
+#
+[tool.tbump]
+github_url = "https://github.com/2i2c-org/jupyter-launcher-shortcuts"
+
+[tool.tbump.version]
+current = "4.0.0-0.dev"
+regex = '''
+    (?P<major>\d+)
+    \.
+    (?P<minor>\d+)
+    \.
+    (?P<patch>\d+)
+    -?
+    (?P<pre>((alpha|beta|rc)\.\d+)|)
+    (?P<dev>(0\.dev)|)
+'''
+
+[tool.tbump.git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+[[tool.tbump.file]]
+src = "jupyter_launcher_shortcuts/_version.py"
+
+[[tool.tbump.file]]
+src = "pyproject.toml"
+
+[[tool.tbump.file]]
+src = "package.json"
