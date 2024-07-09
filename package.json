@@ -1,5 +1,5 @@
 {
-    "name": "jupyter_launcher_shortcuts",
+    "name": "jupyterlab-launcher-shortcuts",
     "version": "4.0.1",
     "description": "Provide arbitrary shortcuts for apps in JupyterLab",
     "keywords": [
@@ -7,9 +7,9 @@
         "jupyterlab",
         "jupyterlab-extension"
     ],
-    "homepage": "https://github.com/yuvipanda/jupyter-launcher-shortcuts",
+    "homepage": "https://github.com/2i2c-org/jupyter-launcher-shortcuts",
     "bugs": {
-        "url": "https://github.com/yuvipanda/jupyter-launcher-shortcuts/issues"
+        "url": "https://github.com/2i2c-org/jupyter-launcher-shortcuts/issues"
     },
     "license": "BSD-3-Clause",
     "author": "Yuvi Panda",
@@ -23,7 +23,7 @@
     "style": "style/index.css",
     "repository": {
         "type": "git",
-        "url": "https://github.com/yuvipanda/jupyter-launcher-shortcuts.git"
+        "url": "https://github.com/2i2c-org/jupyter-launcher-shortcuts.git"
     },
     "scripts": {
         "build": "jlpm build:lib && jlpm build:labextension:dev",

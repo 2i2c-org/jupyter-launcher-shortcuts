@@ -129,10 +129,10 @@ jobs:
           path: jsdist
 
       - run: |
-          npm publish --dry-run ./jsdist/jupyter_launcher_shortcuts-*.tgz
+          npm publish --dry-run ./jsdist/jupyterlab-launcher-shortcuts-*.tgz
 
       - run: |
-          npm publish ./jsdist/jupyter_launcher_shortcuts-*.tgz
+          npm publish ./jsdist/jupyterlab-launcher-shortcuts-*.tgz
         if: startsWith(github.ref, 'refs/tags')
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
