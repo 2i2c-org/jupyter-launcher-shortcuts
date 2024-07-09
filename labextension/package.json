@@ -14,6 +14,7 @@
     "license": "BSD-3-Clause",
     "author": "Yuvi Panda",
     "files": [
+        "LICENSE",
         "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
         "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
         "src/**/*.{ts,tsx}"
