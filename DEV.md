@@ -1,4 +1,4 @@
-# Jupyter Launcher Shortcuts development & release
+# Jupyter Launcher Shortcuts development
 
 ## Pre-build labextension
 
@@ -12,17 +12,4 @@ micromamba activate jupyterlab-ext
 Prebuild Jupyterlab extension
 ```
 jlpm build
-```
-
-## Create dist packages
-
-```
-hatch build
-```
-
-## Increase minor version
-
-```
-hatch minor version
-hatch build
 ```
